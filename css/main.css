@@ -1,0 +1,70 @@
+body {
+    background-color: rgba(0, 0, 255, 0.4);
+}
+
+.canvas {
+    height: 500px;
+    background: white;
+    margin: 0;
+}
+
+.tool-bar {
+    height: 100%;
+    background-color: rgba(248, 244, 244, 0.596);
+}
+
+.colors > div {
+    height: 50px;
+    border: inset;
+    margin-bottom: 2px;
+    
+}
+
+.colors > div:first-child {
+    background-color: red;
+}
+
+.colors > div:nth-child(2) {
+    background-color: pink;
+}
+
+.colors > div:nth-child(3) {
+    background-color: yellow;
+}
+
+.colors > div:nth-child(4) {
+    background-color: green;
+}
+
+.colors > div:nth-child(5) {
+    background-color: gray;
+}
+
+.colors > div:nth-child(6) {
+    background-color: blue;
+}
+
+.colors > div:nth-child(7) {
+    background-color: lightblue;
+}
+
+.colors > div:nth-child(8) {
+    background-color: brown;
+}
+
+.colors > div:nth-child(9) {
+    background-color: purple;
+}
+
+.colors > div:nth-child(10) {
+    background-color: orange;
+}
+
+.colors > div:nth-child(11) {
+    background-color: rgba(228, 163, 43, 0.774);
+}
+
+
+
+
+
