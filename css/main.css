@@ -2,6 +2,10 @@ body {
     background-color: rgba(0, 0, 255, 0.4);
 }
 
+.col-md-6 {
+    z-index: 1;
+}
+
 #canvas-wrapper {
     height: 100%;
     background: white;
@@ -23,7 +27,8 @@ body {
     height: 50px;
     border: inset;
     margin-bottom: 2px;
-    
+    cursor: -webkit-grab;
+    cursor: grab;
 }
 
 .colors > div:first-child {
