@@ -19,16 +19,64 @@ body {
 }
 
 .tool-bar {
-    height: 100%;
+    height: 700px;
     background-color: rgba(248, 244, 244, 0.596);
 }
 
-.colors > div {
+.colors > div:not(.form-group):not(.dropdown) {
     height: 50px;
     border: inset;
     margin-bottom: 2px;
-    cursor: -webkit-grab;
-    cursor: grab;
+    cursor: -webkit-grabbing;
+    cursor: grabbing;
+}
+
+.dropdown {
+    text-align: left;
+}
+
+.dropdown-menu li {
+    cursor: pointer;
+}
+
+.dropdown-menu li:first-child div {
+    margin: auto 5%;
+    background-color: black;
+    height: 15px;
+}
+
+.dropdown-menu li:nth-child(2) div {
+    margin: 5%;
+    background-color: black;
+    height: 12px;
+}
+
+.dropdown-menu li:nth-child(3) div {
+    margin: 5%;
+    background-color: black;
+    height: 10px;
+}
+
+.dropdown-menu li:nth-child(4) div {
+    margin: 5%;
+    background-color: black;
+    height: 7px;
+}
+
+.dropdown-menu li:nth-child(4) div {
+    margin: 5%;
+    background-color: black;
+    height: 4px;
+}
+
+.dropdown-menu li:nth-child(5) div {
+    margin: 5%;
+    background-color: black;
+    height: 2px;
+}
+
+#custom-color {
+    margin-top: 20px;
 }
 
 .colors > div:first-child {
