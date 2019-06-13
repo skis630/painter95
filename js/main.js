@@ -2,7 +2,7 @@ var color = "black";
 var penSize = "3px";
 
 $(document).ready(function() {
-    localStorage.clear();
+    localStorage.setItem("pen-size", penSize);
 })
 
 //features
@@ -61,16 +61,13 @@ $("#canvas-wrapper").click(function(e) {
                                css("display", "inline-block").css("width",penSize).css("height", penSize).
                                css("position", "absolute").css("top", y).
                                css("left", x);
-    $(this).append(circle);
-
+    
     var posX = x / rect.width;
     var posY = y / rect.height;
-
-    if (posX > 0.95 || posY > 0.95 || posX < 0.05 || posY < 0.05) {
-        $(this).off("click");
+    if (posX > 0.97 || posY > 0.97 || posX < 0.03 || posY < 0.03) {
+        circle = null;
     }
-
-
+    $(this).append(circle);
 });
 
 $("#canvas-wrapper").mousedown(function(event) {
@@ -83,27 +80,19 @@ $("#canvas-wrapper").mousedown(function(event) {
         css("position", "absolute").css("top", y).css("left", x).
         css("border-radius", "50%");
    
-    $(this).append(line);
+        var posX = x / rect.width;
+        var posY = y / rect.height;
+        if (posX > 0.97 || posY > 0.97 || posX < 0.02 || posY < 0.02) {
+            line = null;
+        }    
+        $(this).append(line);
+
     $(this).on("mouseup", function() {
         $(this).off("mousemove");
-    });
-
-    var posX = x / rect.width;
-    var posY = y / rect.height;
-
-    if (posX > 0.95 || posY > 0.95 || posX < 0.05 || posY < 0.05) {
-        $(this).off("mousemove");
-    }    
+    }); 
   })
 })
 
-//$(".colors > div").clicl(function() )
 $(".clr").click(function() {
     $("#canvas-wrapper").html("");
 })
-
-
-var left = $("#canvas-wrapper span").css("left");
-$("#canvas-wrapper span").filter(function() {
-        return $(this).css("left").substring(0, left.length - 2) < 100;
-      }).remove();
