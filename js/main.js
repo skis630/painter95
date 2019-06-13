@@ -55,16 +55,18 @@ $(".erase").click(function() {
 //paint
 $("#canvas-wrapper").click(function(e) {
     var rect = document.getElementById("canvas-wrapper").getBoundingClientRect();
+    var x = e.pageX - $(this).offset().left + 13;
+    var y = e.pageY - $(this).offset().top;
     var circle = $("<span />").css("background-color", color).css("border-radius", "50%").
                                css("display", "inline-block").css("width",penSize).css("height", penSize).
-                               css("position", "absolute").css("top", `${parseInt(e.offsetY - 5)}px`).
-                               css("left", `${parseInt(e.offsetX + 15)}px`);
+                               css("position", "absolute").css("top", y).
+                               css("left", x);
     $(this).append(circle);
 
-    var posX = (e.offsetX + 15) / rect.width;
-    var posY = e.offsetY / rect.height;
+    var posX = x / rect.width;
+    var posY = y / rect.height;
 
-    if (posX > 0.95 && posY > 0.95) {
+    if (posX > 0.95 || posY > 0.95 || posX < 0.05 || posY < 0.05) {
         $(this).off("click");
     }
 
@@ -74,9 +76,11 @@ $("#canvas-wrapper").click(function(e) {
 $("#canvas-wrapper").mousedown(function(event) {
     var rect = document.getElementById("canvas-wrapper").getBoundingClientRect();
     $(this).mousemove(function(e) {
+        var x = e.pageX - $(this).offset().left + 13;
+        var y = e.pageY - $(this).offset().top;
         var line = $("<span />").css("background-color", color).css("display", "inline-block").
         css("width", penSize).css("height", penSize).
-        css("position", "absolute").css("top", e.offsetY).css("left", e.offsetX + 15).
+        css("position", "absolute").css("top", y).css("left", x).
         css("border-radius", "50%");
    
     $(this).append(line);
@@ -84,10 +88,10 @@ $("#canvas-wrapper").mousedown(function(event) {
         $(this).off("mousemove");
     });
 
-    var posX = (e.offsetX + 15) / rect.width;
-    var posY = e.offsetY / rect.height;
+    var posX = x / rect.width;
+    var posY = y / rect.height;
 
-    if (posX > 0.95 || posY > 0.95) {
+    if (posX > 0.95 || posY > 0.95 || posX < 0.05 || posY < 0.05) {
         $(this).off("mousemove");
     }    
   })
