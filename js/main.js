@@ -1,6 +1,10 @@
 var color = "black";
 var penSize = "3px";
 
+$(document).ready(function() {
+    localStorage.clear();
+})
+
 //features
 $(".colors .well").click(function() {
     color = $(this).css("background-color");
@@ -72,7 +76,7 @@ $("#canvas-wrapper").mousedown(function(event) {
     $(this).mousemove(function(e) {
         var line = $("<span />").css("background-color", color).css("display", "inline-block").
         css("width", penSize).css("height", penSize).
-        css("position", "absolute").css("top", `${e.offsetY}px`).css("left", `${e.offsetX + 15}px`).
+        css("position", "absolute").css("top", e.offsetY).css("left", e.offsetX + 15).
         css("border-radius", "50%");
    
     $(this).append(line);
