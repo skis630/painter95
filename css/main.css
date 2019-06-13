@@ -35,8 +35,18 @@ body {
     text-align: left;
 }
 
+.pen-size:focus ~ .dropdown-menu.eraser {
+    display: none;
+}
+
 .dropdown-menu li {
     cursor: pointer;
+}
+
+.dropdown-menu.eraser li:first-child div {
+    margin: 5%;
+    background-color: black;
+    height: 30px;
 }
 
 .dropdown-menu li:first-child div {
