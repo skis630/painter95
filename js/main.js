@@ -5,6 +5,7 @@ var penSize = "3px";
 $(".colors .well").click(function() {
     color = $(this).css("background-color");
     localStorage.setItem("color", color);
+    penSize = localStorage.getItem("pen-size");
 });
 
 $(".dropdown-menu.pen-width li div").click(function() {
@@ -19,10 +20,12 @@ $(".dropdown-menu.pen-width li div").click(function() {
 $("#custom-color").click(function(e) {
     color = $(this).val();
     localStorage.setItem("color", color);
+    penSize = localStorage.getItem("pen-size");
 });
 $("#custom-color").change(function(e) {
     color = $(this).val();
     localStorage.setItem("color", color);
+    penSize = localStorage.getItem("pen-size");
 });
 $(".erase").click(function() {
     color = "white";
